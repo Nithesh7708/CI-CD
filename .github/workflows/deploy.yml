@@ -1,0 +1,17 @@
+name:Deploy Html file
+
+on:
+  push:
+    branches:[main]
+jobs:
+  deploy:
+    runs-on:ubuntu-lastest
+  steps:
+    -name:checkout code
+    uses:actions/checkout@v3
+    -name:deploy to github pages
+    uses:peaceiris/actions-gh-paegs@v3
+    with:
+      github_token:${{secrets.GITHUB_TOKEN}}
+    public_dir:public
+    public_branch:gh-pages
